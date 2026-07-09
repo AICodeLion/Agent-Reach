@@ -2,6 +2,8 @@
 
 ## For Humans
 
+Use this from an agent or terminal that runs on your real computer, persistent dev environment, or VPS. If your agent says it is running in a temporary hosted sandbox, do not install there; use a local terminal or an agent connected to the target machine instead.
+
 Copy this to your AI Agent:
 
 ```
@@ -21,6 +23,32 @@ Copy this to your AI Agent:
 ### Goal
 
 Install Agent Reach and all upstream tools so your user's agent has full internet access. After installation, you'll use the upstream tools directly (OpenCLI, twitter-cli, bili-cli, rdt-cli, yt-dlp, mcporter, gh CLI, etc.) — Agent Reach is the selector, installer, health checker and router, never a wrapper.
+
+### ✅ Install environment check
+
+Before installing, confirm your shell is running in the environment where the user wants Agent Reach to live.
+
+Agent Reach needs:
+
+- A persistent filesystem for `~/.agent-reach/`, installed CLIs, MCP config, and skill files
+- Permission to run shell commands such as `pipx`, `pip`, `npm`, `mcporter`, `yt-dlp`, and upstream CLI tools
+- Network access to GitHub and the selected upstream services
+- For browser-session backends such as OpenCLI, access to the user's real desktop browser profile
+
+Good targets:
+
+- The user's local macOS/Linux/Windows machine
+- A persistent dev container or remote development VM owned by the user
+- A VPS/server when the user wants server-side access
+
+Bad targets:
+
+- Temporary hosted agent sandboxes
+- Chat-only or Cowork-style environments whose filesystem is discarded after the session
+- Sandboxes whose shell runs on a remote Linux host while the user expects installation on their Windows/macOS computer
+- Environments that block command-line web access, browser automation, `curl`, `yt-dlp`, or MCP services by policy
+
+If you are in a temporary hosted sandbox, **do not install Agent Reach there**. Tell the user to run the install from a local terminal or from an agent connected to their real machine. Installing into the sandbox may appear to work, but the files and browser sessions will not be available where the user needs them.
 
 ### ⚠️ Boundaries
 

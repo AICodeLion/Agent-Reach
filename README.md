@@ -101,6 +101,10 @@ AI Agent 已经能帮你写代码、改文档、管项目——但你让它去�
 
 ## 快速上手
 
+> ⚠️ **先确认安装环境**
+>
+> Agent Reach 必须安装在能持久保存文件、能执行 shell 命令的真实环境里，比如你的本机、持久化开发容器或 VPS。不要在临时的托管 Agent/Cowork 沙盒里安装：那里的 `~/.agent-reach/` 会话结束后可能消失，也通常不能代表你的 Windows/macOS 电脑访问浏览器登录态。
+
 > ⚠️ **OpenClaw 用户请先确认 exec 权限已开启**
 >
 > Agent Reach 依赖 Agent 执行 shell 命令（`pip install`、`mcporter`、`twitter` 等）。如果你的 OpenClaw 使用了默认的 `messaging` 工具配置，Agent 将无法执行命令。**安装前请先开启 exec 权限**：
